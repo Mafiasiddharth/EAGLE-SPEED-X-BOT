@@ -24,7 +24,7 @@
 
 No Requirement of API ID and API HASH
 
-   - Generate on Repl [![Run on Repl.it](https://repl.it/badge/github/YukkiBot/YukkiSpamBot)](https://replit.com/@unknownforall1/RDX-MULTI-SPAM-BOT)
+   - Generate on Repl [![Run on Repl.it](https://repl.it/badge/github/YukkiBot/YukkiSpamBot)](https://replit.com/@unknownforall1/EAGLE-SPEED-X-BOT)
 
 
 ## SUPPORT GROUP
