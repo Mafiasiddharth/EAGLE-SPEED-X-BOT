@@ -1,6 +1,6 @@
 {
-  "name": "RDX MULTI SPAM BOT",
-  "description": "A POWERFULL AND FAST SPAM BOT BY RDX.",
+  "name": "EAGLE-SPEED-X",
+  "description": "A POWERFULL AND FAST SPAM BOT BY EAGLE MAFIA.",
   "logo": "https://telegra.ph/file/c6d5a3802c0f0a7061a34.jpg",
   "keywords": [
     "spambot",
@@ -11,7 +11,7 @@
       "STRING": {
         "description": "Telethon String Session",
         "value": "",
-        "required": true
+        "required": false
       },
       "STRING2": {
         "description": "Telethon String Session",
@@ -129,6 +129,31 @@
         "required": false
       },
       "STRING25": {
+        "description": "Telethon String Session",
+        "value": "",
+        "required": false
+      },
+      "STRING26": {
+        "description": "Telethon String Session",
+        "value": "",
+        "required": false
+      },
+      "STRING27": {
+        "description": "Telethon String Session",
+        "value": "",
+        "required": false
+      },
+      "STRING28": {
+        "description": "Telethon String Session",
+        "value": "",
+        "required": false
+      },
+      "STRING29": {
+        "description": "Telethon String Session",
+        "value": "",
+        "required": false
+      },
+      "STRING30": {
         "description": "Telethon String Session",
         "value": "",
         "required": false
