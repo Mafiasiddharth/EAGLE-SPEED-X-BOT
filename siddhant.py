@@ -1937,6 +1937,296 @@ async def help(e):
        await e.reply(text, parse_mode=None, link_preview=None )
 
         
+import asyncio
+import random
+from userbot import bot as pandit
+from . import *
+
+NUMBER = ["0", "1"]
+
+PANDIT = [
+    "MADARCHOD TERI MAA KI CHUT ME GHUTKA KHAAKE THOOK DUNGA 馃ぃ馃ぃ",
+    "TERE BEHEN K CHUT ME CHAKU DAAL KAR CHUT KA KHOON KAR DUGA",
+    "TERI VAHEEN NHI HAI KYA? 9 MAHINE RUK SAGI VAHEEN DETA HU 馃ぃ馃ぃ馃ぉ",
+    "TERI MAA K BHOSDE ME AEROPLANEPARK KARKE UDAAN BHAR DUGA 鉁堬笍馃洬",
+    "TERI MAA KI CHUT ME SUTLI BOMB FOD DUNGA TERI MAA KI JHAATE JAL KE KHAAK HO JAYEGI馃挘",
+    "TERI MAAKI CHUT ME SCOOTER DAAL DUGA馃憛",
+    "TERE BEHEN K CHUT ME CHAKU DAAL KAR CHUT KA KHOON KAR DUGA",
+    "TERE BEHEN K CHUT ME CHAKU DAAL KAR CHUT KA KHOON KAR DUGA",
+    "TERI MAA KI CHUT KAKTE 馃け GALI KE KUTTO 馃Ξ ME BAAT DUNGA PHIR 馃崬 BREAD KI TARH KHAYENGE WO TERI MAA KI CHUT",
+    "DUDH HILAAUNGA TERI VAHEEN KE UPR NICHE 馃啓馃啋馃槞",
+    "TERI MAA KI CHUT ME 鉁� HATTH DALKE 馃懚 BACCHE NIKAL DUNGA 馃槏",
+    "TERI BEHN KI CHUT ME KELE KE CHILKE 馃崒馃崒馃槏",
+    "TERI BHEN KI CHUT ME USERBOT LAGAAUNGA SASTE SPAM KE CHODE",
+    "TERI VAHEEN DHANDHE VAALI 馃構馃槢",
+    "TERI MAA KE BHOSDE ME AC LAGA DUNGA SAARI GARMI NIKAL JAAYEGI",
+    "TERI VAHEEN KO HORLICKS PEELAUNGA MADARCHOD馃槡",
+    "TERI MAA KI GAAND ME SARIYA DAAL DUNGA MADARCHOD USI SARIYE PR TANG KE BACHE PAIDA HONGE 馃槺馃槺",
+    "TERI MAA KO KOLKATA VAALE JITU BHAIYA KA LUND MUBARAK 馃ぉ馃ぉ",
+    "TERI MUMMY KI FANTASY HU LAWDE, TU APNI BHEN KO SMBHAAL 馃槇馃槇",
+    "TERA PEHLA BAAP HU MADARCHOD ",
+    "TERI VAHEEN KE BHOSDE ME XVIDEOS.COM CHALA KE MUTH MAARUNGA 馃ぁ馃樄",
+    "TERI MAA KA GROUP VAALON SAATH MILKE GANG BANG KRUNGA馃檶馃徎鈽狅笍 ",
+    "TERI ITEM KI GAAND ME LUND DAALKE,TERE JAISA EK OR NIKAAL DUNGA MADARCHOD馃馃徎馃檶馃徎鈽狅笍 ",
+    "AUKAAT ME REH VRNA GAAND ME DANDA DAAL KE MUH SE NIKAAL DUNGA SHARIR BHI DANDE JESA DIKHEGA 馃檮馃き馃き",
+    "TERI MUMMY KE SAATH LUDO KHELTE KHELTE USKE MUH ME APNA LODA DE DUNGA鈽濔煆烩槤馃徎馃槵",
+    "TERI VAHEEN KO APNE LUND PR ITNA JHULAAUNGA KI JHULTE JHULTE HI BACHA PAIDA KR DEGI馃憖馃懐 ",
+    "TERI MAA KI CHUT MEI BATTERY LAGA KE POWERBANK BANA DUNGA 馃攱 馃敟馃ぉ",
+    "TERI MAA KI CHUT MEI C++ STRING ENCRYPTION LAGA DUNGA BAHTI HUYI CHUT RUK JAYEGIIII馃槇馃敟馃槏",
+    "TERI MAA KE GAAND MEI JHAADU DAL KE MOR 馃 BANA DUNGAA 馃ぉ馃サ馃槺",
+    "TERI CHUT KI CHUT MEI SHOULDERING KAR DUNGAA HILATE HUYE BHI DARD HOGAAA馃槺馃ぎ馃懞",
+    "TERI MAA KO REDI PE BAITHAL KE USSE USKI CHUT BILWAUNGAA 馃挵 馃樀馃ぉ",
+    "BHOSDIKE TERI MAA KI CHUT MEI 4 HOLE HAI UNME MSEAL LAGA BAHUT BAHETI HAI BHOFDIKE馃憡馃ぎ馃あ馃あ",
+    "TERI BAHEN KI CHUT MEI BARGAD KA PED UGA DUNGAA CORONA MEI SAB OXYGEN LEKAR JAYENGE馃あ馃ぉ馃コ",
+    "TERI MAA KI CHUT MEI SUDO LAGA KE BIGSPAM LAGA KE 9999 FUCK LAGAA DU 馃ぉ馃コ馃敟",
+    "TERI VAHEN KE BHOSDIKE MEI BESAN KE LADDU BHAR DUNGA馃ぉ馃コ馃敟馃槇",
+    "TERI MAA KI CHUT KHOD KE USME CYLINDER 鉀斤笍 FIT KARKE USMEE DAL MAKHANI BANAUNGAAA馃ぉ馃憡馃敟",
+    "TERI MAA KI CHUT MEI SHEESHA DAL DUNGAAA AUR CHAURAHE PE TAANG DUNGA BHOSDIKE馃槇馃槺馃ぉ",
+    "TERI MAA KI CHUT MEI CREDIT CARD DAL KE AGE SE 500 KE KAARE KAARE NOTE NIKALUNGAA BHOSDIKE馃挵馃挵馃ぉ",
+    "TERI MAA KE SATH SUAR KA SEX KARWA DUNGAA EK SATH 6-6 BACHE DEGI馃挵馃敟馃槺",
+    "TERI BAHEN KI CHUT MEI APPLE KA 18W WALA CHARGER 馃敟馃ぉ",
+    "TERI BAHEN KI GAAND MEI ONEPLUS KA WRAP CHARGER 30W HIGH POWER 馃挜馃槀馃槑",
+    "TERI BAHEN KI CHUT KO AMAZON SE ORDER KARUNGA 10 rs MEI AUR FLIPKART PE 20 RS MEI BECH DUNGA馃ぎ馃懣馃槇馃",
+    "TERI MAA KI BADI BHUND ME ZOMATO DAL KE SUBWAY KA BFF VEG SUB COMBO [15cm , 16 inches ] ORDER COD KRVAUNGA OR TERI MAA JAB DILIVERY DENE AYEGI TAB USPE JAADU KRUNGA OR FIR 9 MONTH BAAD VO EK OR FREE DILIVERY DEGI馃檧馃憤馃コ馃敟",
+    "TERI BHEN KI CHUT KAALI馃檨馃ぃ馃挜",
+    "TERI MAA KI CHUT ME CHANGES COMMIT KRUGA FIR TERI BHEEN KI CHUT AUTOMATICALLY UPDATE HOJAAYEGI馃馃檹馃",
+    "TERI MAUSI KE BHOSDE MEI INDIAN RAILWAY 馃殏馃挜馃槀",
+    "TU TERI BAHEN TERA KHANDAN SAB BAHEN KE LAWDE RANDI HAI RANDI 馃あ鉁咅煍�",
+    "TERI BAHEN KI CHUT MEI IONIC BOND BANA KE VIRGINITY LOOSE KARWA DUNGA USKI 馃摎 馃槑馃ぉ",
+    "TERI RANDI MAA SE PUCHNA BAAP KA NAAM BAHEN KE LODEEEEE 馃ぉ馃コ馃槼",
+    "TU AUR TERI MAA DONO KI BHOSDE MEI METRO CHALWA DUNGA MADARXHOD 馃殗馃ぉ馃槺馃ザ",
+    "TERI MAA KO ITNA CHODUNGA TERA BAAP BHI USKO PAHCHANANE SE MANA KAR DEGA馃槀馃懣馃ぉ",
+    "TERI BAHEN KE BHOSDE MEI HAIR DRYER CHALA DUNGAA馃挜馃敟馃敟",
+    "TERI MAA KI CHUT MEI TELEGRAM KI SARI RANDIYON KA RANDI KHANA KHOL DUNGAA馃懣馃ぎ馃槑",
+    "TERI MAA KI CHUT ALEXA DAL KEE DJ BAJAUNGAAA 馃幎 猬嗭笍馃ぉ馃挜",
+    "TERI MAA KE BHOSDE MEI GITHUB DAL KE APNA BOT HOST KARUNGAA 馃ぉ馃憡馃懁馃槏",
+    "TERI BAHEN KA VPS BANA KE 24*7 BASH CHUDAI COMMAND DE DUNGAA 馃ぉ馃挜馃敟馃敟",
+    "TERI MUMMY KI CHUT MEI TERE LAND KO DAL KE KAAT DUNGA MADARCHOD 馃敧馃槀馃敟",
+    "SUN TERI MAA KA BHOSDA AUR TERI BAHEN KA BHI BHOSDA 馃懣馃槑馃憡",
+    "TUJHE DEKH KE TERI RANDI BAHEN PE TARAS ATA HAI MUJHE BAHEN KE LODEEEE 馃懣馃挜馃ぉ馃敟",
+    "SUN MADARCHOD JYADA NA UCHAL MAA CHOD DENGE EK MIN MEI 鉁咅煠ｐ煍ヰ煠�",
+    "APNI AMMA SE PUCHNA USKO US KAALI RAAT MEI KAUN CHODNEE AYA THAAA! TERE IS PAPA KA NAAM LEGI 馃槀馃懣馃槼",
+    "TOHAR BAHIN CHODU BBAHEN KE LAWDE USME MITTI DAL KE CEMENT SE BHAR DU 馃彔馃あ馃ぉ馃挜",
+    "TUJHE AB TAK NAHI SMJH AYA KI MAI HI HU TUJHE PAIDA KARNE WALA BHOSDIKEE APNI MAA SE PUCH RANDI KE BACHEEEE 馃ぉ馃憡馃懁馃槏",
+    "TERI MAA KE BHOSDE MEI SPOTIFY DAL KE LOFI BAJAUNGA DIN BHAR 馃槏馃幎馃幎馃挜",
+    "TERI MAA KA NAYA RANDI KHANA KHOLUNGA CHINTA MAT KAR 馃憡馃ぃ馃ぃ馃槼",
+    "TERA BAAP HU BHOSDIKE TERI MAA KO RANDI KHANE PE CHUDWA KE US PAISE KI DAARU PEETA HU 馃嵎馃ぉ馃敟",
+    "TERI BAHEN KI CHUT MEI APNA BADA SA LODA GHUSSA DUNGAA KALLAAP KE MAR JAYEGI 馃ぉ馃槼馃槼馃敟",
+    "TOHAR MUMMY KI CHUT MEI PURI KI PURI KINGFISHER KI BOTTLE DAL KE TOD DUNGA ANDER HI 馃槺馃槀馃ぉ",
+    "TERI MAA KO ITNA CHODUNGA KI SAPNE MEI BHI MERI CHUDAI YAAD KAREGI RANDI 馃コ馃槏馃憡馃挜",
+    "TERI MUMMY AUR BAHEN KO DAUDA DAUDA NE CHODUNGA UNKE NO BOLNE PE BHI LAND GHUSA DUNGA ANDER TAK 馃槑馃槑馃ぃ馃敟",
+    "TERI MUMMY KI CHUT KO ONLINE OLX PE BECHUNGA AUR PAISE SE TERI BAHEN KA KOTHA KHOL DUNGA 馃槑馃ぉ馃槤馃槏",
+    "TERI MAA KE BHOSDA ITNA CHODUNGA KI TU CAH KE BHI WO MAST CHUDAI SE DUR NHI JA PAYEGAA 馃槒馃槒馃ぉ馃槏",
+    "SUN BE RANDI KI AULAAD TU APNI BAHEN SE SEEKH KUCH KAISE GAAND MARWATE HAI馃槒馃が馃敟馃挜",
+    "TERI MAA KA YAAR HU MEI AUR TERI BAHEN KA PYAAR HU MEI AJA MERA LAND CHOOS LE 馃ぉ馃ぃ馃挜",
+    "MADARCHOD",
+    "BHOSDIKE",
+    "LAAAWEEE KE BAAAAAL",
+    "MAAAAR KI JHAAAAT KE BBBBBAAAAALLLLL",
+    "MADRCHOD..",
+    "TERI MA KI CHUT..",
+    "LWDE KE BAAALLL.",
+    "MACHAR KI JHAAT KE BAAALLLL",
+    "TERI MA KI CHUT M DU TAPA TAP?",
+    "TERI MA KA BHOSDAA",
+    "TERI BHN SBSBE BDI RANDI.",
+    "TERI MA OSSE BADI RANDDDDD",
+    "TERA BAAP CHKAAAA",
+    "KITNI CHODU TERI MA AB OR..",
+    "TERI MA CHOD DI HM NE",
+    "TERI MA KE STH REELS BNEGA ROAD PEE",
+    "TERI MA KI CHUT EK DAM TOP SEXY",
+    "MALUM NA PHR KESE LETA HU M TERI MA KI CHUT TAPA TAPPPPP",
+    "LUND KE CHODE TU KEREGA TYPIN",
+    "SPEED PKD LWDEEEE",
+    "BAAP KI SPEED MTCH KRRR",
+    "LWDEEE",
+    "PAPA KI SPEED MTCH NHI HO RHI KYA",
+    "ALE ALE MELA BCHAAAA",
+    "CHUD GYA PAPA SEEE",
+    "KISAN KO KHODNA OR",
+    "SALE RAPEKL KRDKA TERA",
+    "HAHAHAAAAA",
+    "KIDSSSS",
+    "TERI MA CHUD GYI AB FRAR MT HONA",
+    "YE LDNGE BAPP SE",
+    "KIDSSS FRAR HAHAHH",
+    "BHEN KE LWDE SHRM KR",
+    "KITNI GLIYA PDWEGA APNI MA KO",
+    "NALLEE",
+    "SHRM KR",
+    "MERE LUND KE BAAAAALLLLL",
+    "KITNI GLIYA PDWYGA APNI MA BHEN KO",
+    "RNDI KE LDKEEEEEEEEE",
+    "KIDSSSSSSSSSSSS",
+    "Apni gaand mein muthi daal",
+    "Apni lund choos",
+    "Apni ma ko ja choos",
+    "Bhen ke laude",
+    "Bhen ke takke",
+    "Abla TERA KHAN DAN CHODNE KI BARIII",
+    "BETE TERI MA SBSE BDI RAND",
+    "LUND KE BAAAL JHAT KE PISSSUUUUUUU",
+    "LUND PE LTKIT MAAALLLL KI BOND H TUUU",
+    "KASH OS DIN MUTH MRKE SOJTA M TUN PAIDA NA HOTAA",
+    "GLTI KRDI TUJW PAIDA KRKE",
+    "SPEED PKDDD",
+    "Gaand main LWDA DAL LE APNI MERAAA",
+    "Gaand mein bambu DEDUNGAAAAAA",
+    "GAND FTI KE BALKKK",
+    "Gote kitne bhi bade ho, lund ke niche hi rehte hai",
+    "Hazaar lund teri gaand main",
+    "Jhaant ke pissu-",
+    "TERI MA KI KALI CHUT",
+    "Khotey ki aulda",
+    "Kutte ka awlat",
+    "Kutte ki jat",
+    "Kutte ke tatte",
+    "TETI MA KI.CHUT , tERI MA RNDIIIIIIIIIIIIIIIIIIII",
+    "Lavde ke bal",
+    "muh mei lele",
+    "Lund Ke Pasine",
+    "MERE LWDE KE BAAAAALLL",
+    "HAHAHAAAAAA",
+    "CHUD GYAAAAA",
+    "Randi khanE KI ULADDD",
+    "Sadi hui gaand",
+    "Teri gaand main kute ka lund",
+    "Teri maa ka bhosda",
+    "Teri maa ki chut",
+    "Tere gaand mein keede paday",
+    "Ullu ke pathe",
+    "SUNN MADERCHOD",
+    "TERI MAA KA BHOSDA",
+    "BEHEN K LUND",
+    "TERI MAA KA CHUT KI CHTNIIII",
+    "MERA LAWDA LELE TU AGAR CHAIYE TOH",
+    "GAANDU",
+    "CHUTIYA",
+    "TERI MAA KI CHUT PE JCB CHADHAA DUNGA",
+    "SAMJHAA LAWDE",
+    "YA DU TERE GAAND ME TAPAA TAP锟斤拷",
+    "TERI BEHEN MERA ROZ LETI HAI",
+    "TERI GF K SAATH MMS BANAA CHUKA HU锟斤拷锟戒笉锟戒笉",
+    "TU CHUTIYA TERA KHANDAAN CHUTIYA",
+    "AUR KITNA BOLU BEY MANN BHAR GAYA MERA锟戒笉",
+    "TERIIIIII MAAAA KI CHUTTT ME ABCD LIKH DUNGA MAA KE LODE",
+    "TERI MAA KO LEKAR MAI FARAR",
+    "RANIDIII",
+    "BACHEE",
+    "CHODU",
+    "RANDI",
+    "RANDI KE PILLE",
+    "TERIIIII MAAA KO BHEJJJ",
+    "TERAA BAAAAP HU",
+    "teri MAA KI CHUT ME HAAT DAALLKE BHAAG JAANUGA",
+    "Teri maa KO SARAK PE LETAA DUNGA",
+    "TERI MAA KO GB ROAD PE LEJAKE BECH DUNGA",
+    "Teri maa KI CHUT M脡 KAALI MITCH",
+    "TERI MAA SASTI RANDI HAI",
+    "TERI MAA KI CHUT ME KABUTAR DAAL KE SOUP BANAUNGA MADARCHOD",
+    "TERI MAAA RANDI HAI",
+    "TERI MAAA KI CHUT ME DETOL DAAL DUNGA MADARCHOD",
+    "TERI MAA KAAA BHOSDAA",
+    "TERI MAA KI CHUT ME LAPTOP",
+    "Teri maa RANDI HAI",
+    "TERI MAA KO BISTAR PE LETAAKE CHODUNGA",
+    "TERI MAA KO AMERICA GHUMAAUNGA MADARCHOD",
+    "TERI MAA KI CHUT ME NAARIYAL PHOR DUNGA",
+    "TERI MAA KE GAND ME DETOL DAAL DUNGA",
+    "TERI MAAA KO HORLICKS PILAUNGA MADARCHOD",
+    "TERI MAA KO SARAK PE LETAAA DUNGAAA",
+    "TERI MAA KAA BHOSDA",
+    "MERAAA LUND PAKAD LE MADARCHOD",
+    "CHUP TERI MAA AKAA BHOSDAA",
+    "TERIII MAA CHUF GEYII KYAAA LAWDEEE",
+    "TERIII MAA KAA BJSODAAA",
+    "MADARXHODDD",
+    "TERIUUI MAAA KAA BHSODAAA",
+    "TERIIIIII BEHENNNN KO CHODDDUUUU MADARXHODDDD",
+    "NIKAL MADARCHOD",
+    "RANDI KE BACHE",
+    "TERA MAA MERI FAN",
+    "TERI SEXY BAHEN KI CHUT OP",
+]
+
+que = {}
+
+
+@pandit.on(admin_cmd(incoming=True))
+@pandit.on(sudo_cmd(incoming=True, allow_sudo=True))
+async def _(event):
+    global que
+    queue = que.get(event.sender_id)
+    if not queue:
+        return
+    async with event.client.action(event.chat_id, "typing"):
+        await asyncio.sleep(0.3)
+    async with event.client.action(event.chat_id, "typing"):
+        await event.client.send_message(
+            entity=event.chat_id,
+            message="""{}""".format(random.choice(PANDIT)),
+            reply_to=event.message.id,
+        )
+
+@pandit.on(admin_cmd(pattern="raidop(?: |$)(.*)"))
+@pandit.on(sudo_cmd(pattern="raidop(?: |$)(.*)", allow_sudo=True))
+async def _(event):
+    global que
+    if event.fwd_from:
+        return
+    if event.reply_to_msg_id:
+        a = await event.get_reply_message()
+        b = await event.client.get_entity(a.sender_id)
+        e = b.id
+        c = b.first_name
+        username = f"[{c}](tg://user?id={e})"
+        event = await edit_or_reply(event, "TERI MA CHODUNGA AB DEKHTE JAA.")
+        que[e] = []
+        qeue = que.get(e)
+        appendable = [e]
+        qeue.append(appendable)
+        await event.edit(f"TERI BHEN KI CHUT FADUNGA AB {username}")
+    else:
+        user = event.pattern_match.group(1)
+        event = await edit_or_reply(event, "BCHE TERI MA KI CHUT SALE...")
+        a = await event.client.get_entity(user)
+        e = a.id
+        c = a.first_name
+        username = f"[{c}](tg://user?id={e})"
+        que[e] = []
+        qeue = que.get(e)
+        appendable = [e]
+        qeue.append(appendable)
+        await event.edit(f"TERI BHEN CHODUNGA AB DEKHTE JA. {username}")
+
+
+@pandit.on(admin_cmd(pattern="stopraid(?: |$)(.*)"))
+@pandit.on(sudo_cmd(pattern="stopraid(?: |$)(.*)", allow_sudo=True))
+async def _(event):
+    global que
+    if event.fwd_from:
+        return
+    if event.reply_to_msg_id:
+        a = await event.get_reply_message()
+        b = await event.client.get_entity(a.sender_id)
+        e = b.id
+        c = b.first_name
+        username = f"[{c}](tg://user?id={e})"
+        event = await edit_or_reply(event, "TERI MA CHOD DALI KUTTE KE SAMAN.")
+        queue = que.get(e)
+        queue.pop(0)
+        await event.edit(f"TERI BHEN K RAPE KRDIA HAHA {username}")
+    else:
+        user = event.pattern_match.group(1)
+        event = await edit_or_reply(event, "TERI MA KA RAPE KRDIAA")
+        a = await event.client.get_entity(user)
+        e = a.id
+        c = a.first_name
+        username = f"[{c}](tg://user?id={e})"
+        queue = que.get(e)
+        queue.pop(0)
+        await event.edit(f"TERI BHEN KA BHOSDA CHOD KE RANGEEN KRDIAAA {username}")
 
     
         
