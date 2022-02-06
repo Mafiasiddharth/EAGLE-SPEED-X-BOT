@@ -7,7 +7,7 @@
    - [SIDDHANT DEVIL](https://t.me/SIDDHANT_DEVIL)
    - [SIDDHARTH](https://t.me/TEAM_EAGLE_BLACK_MAFIA_OWNER)
    - [HELL BOY](https://t.me/HELLL_BOYYYY)
-   - [ASHU](https://t.me/Devilofevilspirit)
+   - [sidd ki jaan](https://t.me/DELIGHT_VIB3_MAHAKAL)
 <p align="center">
   <img src="https://telegra.ph/file/11ce51776313916596aa2.jpg">
 </p>
